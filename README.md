@@ -5,6 +5,8 @@ Goal: Add new code to calculate mean normalized read counts per condition
 New code added to R script:
 
 ```
+# ------------- Calculate mean normalized read counts per gene for new Figure 5 -------------
+
 # Subset DESeq object for 25A treatment and control for WT
 dds.one.cds.wt.25A <- dds.one.cds.wt[,dds.one.cds.wt$Inducer %in% c("None", "25A")]
 mean_norm_counts.wt.25A <- apply(counts(dds.one.cds.wt.25A, normalized=TRUE), 1, function(x) mean(x))
