@@ -200,7 +200,11 @@ dir.create('./Tables', showWarnings = FALSE)
 
 # ------------- Load RNAseq CDS data -------------
 ```{r}
-all <- read.delim2("../data/cdsrna_round.csv", sep = ",", header = TRUE, row.names = 1, comment.char = c("#"))
+# Adjust path to files accordingly
+RAW_READ_COUNTS_FILE = "../data/cdsrna_round.csv"
+METADATA_FILE = "../data/Metadata.txt"
+
+all <- read.delim2(RAW_READ_COUNTS_FILE , sep = ",", header = TRUE, row.names = 1, comment.char = c("#"))
 all$AK098M<-as.double(all$AK098M)
 all$AK102M<-as.double(all$AK102M)
 all$AK117M<-as.double(all$AK117M)
@@ -219,7 +223,7 @@ gene_symbols <- replace_annotation_keys(rownames(all),from = 'ENSEMBL', to = 'SY
 ensembl_to_symbol <- as.data.frame(cbind("Ensembl_ID" = rownames(all), "gene_name" = gene_symbols), row.names = 1)
 
 # Load metadata
-metadata <- read.delim2("../data/Metadata.txt", sep = "\t", row.names = 1, header = T)
+metadata <- read.delim2(METADATA_FILE , sep = "\t", row.names = 1, header = T)
 
 # keep only samples that are present in all object
 metadata <- metadata[colnames(all),]  ### NOTE: I would provide a metadata file already filtered for the paper
