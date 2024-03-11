@@ -1,0 +1,14 @@
+.DS_Store
+.RData
+.Rhistory
+.Rprofile
+.Rproj.user/
+TK_104.Rproj
+data/
+R/RNAseL_RIBOseq_analysis.R
+R/RNaseL_RNA_revised_v2.R
+R/Mean_norm_counts/
+R/DE/
+R/Tables/
+R/Plots/
+metadata_wt.txt
